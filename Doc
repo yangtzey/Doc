@@ -1,0 +1,255 @@
+apt-get install libfreetype6-dev
+http://my.oschina.net/yangtzey
+http://10.10.88.36/dokuwiki/doku.php?id=wiki:team:system_design:technique:ubuntu_gcc
+iwiki
+http://10.10.88.36/dokuwiki/doku.php?id=wiki:team:system_design:technique:genivibaseline
+git 
+http://10.10.88.36:8088/SystemDesign/genivi-baseline
+
+./configure CPPFLAGS=-P
+export http_proxy=http://zhang_xin:NanHai_0517@proxy.neusoft.com:8080
+export https_proxy=http://zhang_xin:NanHai_0517@proxy.neusoft.com:8080
+export ftp_proxy=http://zhang_xin:NanHai_0517@proxy.neusoft.com:8080
+
+
+
+MACHINE=qemux86-64 bitbake kronos-image
+
+
+curl httpproxy
+wget -Y on -e "http_proxy=http://proxy.neusoft.com:8080" "www.openssl.org/source/openssl-1.0.2a.tar.gz"
+wget -Y on -e "http_proxy=http://proxy.neusoft.com:8080" "http://download.oracle.com/berkeley-db/db-6.0.30.tar.gz"
+wget -Y on -e "http_proxy=http://proxy.neusoft.com:8080" "http://ftp.gnu.org/gnu/gcc/gcc-4.9.2/gcc-4.9.2.tar.bz2"
+
+http://blog.chinaunix.net/uid-20788470-id-1841656.html
+
+git config --global https.proxy http://127.0.0.1:1080
+
+git config --global --unset http.proxy
+怎么判断Ubuntu支持中文编码
+git config --global --unset https.proxy
+
+export TEMPLATECONF=/home/zhang_xin/Workspace/genivi-baseline-master/genivi-baseline-master/meta-ivi/meta-ivi/conf
+/home/zhang_xin/Workspace/genivi-baseline-master/genivi-baseline-master/
+
+scp -r zhang_xin@/home/zhangxin/Workspace/geni
+vi-baseline2/build/tmp/deploy/images/qemux86 .
+
+scp -r shared@10.10.91.239:/home/SharedFolder/WaylandDemo/sdk /home/sdk
+scp -r shared@10.10.91.239:/home/SharedFolder/WaylandDemo/sdk /home
+ls -alh
+
+ssh zhang_xin@10.10.91.239
+
+du -d1 -h
+
+export TEMPLATECONF=/home/zhang_xin/genivi-baseline/meta-ivi/meta-ivi/conf
+ifconfig tap0 192.168.7.1  netmask 255.255.255.0 promisc
+
+ssh shared@10.10.91.239 123qweASD
+MACHINE=qemux86-64 bitbake kronos-image
+
+qmake
+make
+make clean
+./configure CPPFLAGS=-P
+scp -r ttttt/ root@192.168.7.2:/home/root/
+
+scp -r .vimrc root@192.168.7.2:/home/root/
+
+
+libicui18n54-54.1-r0.i586.rpm
+
+glibc-localedata-i18n-2.21-r0.i586.rpm
+
+source /usr/local/oecore-x86_64/environment-setup-i586-poky-linux
+
+weston
+
+
+sudo kvm -kernel gdp-ivi9-rc1.bzImage     -net nic,vlan=0     -net tap,vlan=0,ifname=tap0,script=no,downscript=no     -cpu core2duo     -hda gdp-ivi9-rc1.rootfs.ext4     -vga vmware     -no-reboot     -soundhw ac97     -m 512     --append "vga=0 uvesafb.mode_option=640x480-32 root=/dev/hda rw mem=512M ip=192.168.7.2::192.168.7.1:255.255.255.0 oprofile.timer=1"
+
+sudo tunctl -t tap0 -u zhang_xin
+sudo ifconfig tap0 192.168.7.1  netmask 255.255.255.0 promisc
+
+source poky/oe-init-build-env
+../../meta-ivi/scripts/runqemu ~/Downloads/CNImage/bzImage--3.14.36+git0+162dfe3bb0_f7cbba6012-r0-qemux86-20160316002004.bin ~/Downloads/CNImage/kronos-image-qemux86-20160415074319.rootfs.ext4 qemuparams="--enable-kvm"
+
+
+readelf -a 
+
+sudo apt-get update
+
+apt-get source locales
+
+grep locales -r *
+
+apt-get source localedef
+
+
+localedef -i zh_CN -f GB2312 zh_CN.GB2312 --prefix=/
+
+../../meta-ivi/scripts/runqemu ~/Downloads/Newimge/bzImage--3.14.36+git0+162dfe3bb0_f7cbba6012-r0-qemux86-20160316002004.bin ~/Downloads/Newimge/kronos-image-qemux86-20160324052032.rootfs.ext4 qemuparams="--enable-kvm"
+
+
+
+
+
+    跳至内容
+
+Neusoft Core
+用户工具
+
+    登录为: zhang_xin (zhang_xin)更新个人信息退出 
+
+站点工具
+
+    最近更改媒体管理器网站地图 
+
+您在这里: start » wiki » team » system_design » technique » genivibaseline
+您的足迹: • start • system_design • team • ubuntu_gcc • genivibaseline
+wiki
+project
+team
+product_planning
+system_design
+设计文档
+issue
+technique
+android_emulator
+centos7_firewall
+chinaholiday
+docker_proxy
+doxygen
+drawmultipolygon
+genivibaseline
+git_issue
+ipc_commonapi_cpp
+kml
+linux_cli
+mips
+mtp
+opendive
+openlr
+sdl
+svn
+ubuntu_gcc
+dokuwiki
+server_info
+syntax
+welcome
+wiki:team:system_design:technique:genivibaseline
+构建GENIVI Yocto Base Line(未完待续)
+前言
+
+由于公司网络访问外网需要代理，所以构件GENIVI Yocto Baseline时会遇到诸多问题，因此本文介绍具体构件步骤。
+方法
+git配置
+
+Yocto中很多Code是部署在外网代码库中，因此需要使用git取得Code后编译。但是git协议的代码仓库无法通过公司代理，因此需要做地址变换。
+变换方法：
+修改本地的.gitconfig文件。添加以下内容
+
+[url "http://git.yoctoproject.org/git/"]
+	insteadOf = git://git.yoctoproject.org/
+[url "https://github.com/openembedded/"]
+	insteadOf = git://git.openembedded.org/
+[url "https://github.com/"]
+	insteadOf = git://github.com/
+[url "https://code.qt.io/"]
+	insteadOf = git://code.qt.io/
+[url "http://git.projects.genivi.org/"]
+        insteadOf = git://git.projects.genivi.org/
+[url "http://anongit.freedesktop.org/git/"]
+        insteadOf = git://anongit.freedesktop.org/git/
+[url "https://git.kernel.org"]
+        insteadOf = git://git.kernel.org/
+[url "http://anongit.freedesktop.org/git/wayland/wayland.git/"]
+        insteadOf = git://anongit.freedesktop.org/wayland/wayland.git
+[url "http://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git/"]
+	insteadOf = git://git.kernel.org/pub/scm/linux/kernel/git/dhowells/keyutils.git
+[url "http://anongit.freedesktop.org/git/wayland/weston.git/"]
+	insteadOf = git://anongit.freedesktop.org/wayland/weston
+
+取得yocto版本
+
+本文构建Genivi的Baseline版本是9.0.1。如果想用构建其他版本的Baseline可以参考meta-ivi
+
+% mkdir $HOME/genivi-baseline
+% cd $HOME/genivi-baseline
+% git clone git://git.yoctoproject.org/poky
+% cd poky; git checkout eb4a134a60e3ac26a48379675ad6346a44010339; cd -
+% git clone git://git.openembedded.org/meta-openembedded
+% cd meta-openembedded; git checkout 5b0305d9efa4b5692cd942586fb7aa92dba42d59; cd -
+% git clone git://git.yoctoproject.org/meta-ivi
+% cd meta-ivi; git checkout 9.0.1; cd -
+export TEMPLATECONF=/home/yangtze/workspace/genivi-baseline-master/meta-ivi/meta-ivi/conf
+编译BaseLine
+ export TEMPLATECONF=/home/yangtze/workspace/genivi-baseline-master/meta-ivi/meta-ivi/conf
+1. Install dependencies
+
+ > $ sudo apt-get install gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat libsdl1.2-dev xterm
+ 
+
+2. Export TEMPLATECONF to pick up correct configuration for the build
+
+ > $ export TEMPLATECONF=$PWD/meta-ivi/meta-ivi/conf
+
+3. Run the following command:
+
+ > $ source poky/oe-init-build-env
+
+4. Build kronos-image including GENIVI 9.0 (Kronos) components
+
+ > $ bitbake kronos-image
+MACHINE=qemux86 bitbake kronos-image
+ 
+
+运行BaseLine
+
+1. Run the emulator:
+假设当前目录仍为build目录
+
+ > for qemu vexpressa9(ARMv7):  
+ > $PWD/../meta-ivi/scripts/runqemu kronos-image vexpressa9
+ >
+ > for qemu x86(IA-32):  
+ > $PWD/../meta-ivi/scripts/runqemu kronos-image qemux86
+ >
+ > for qemu x86-64(x86-64):  
+ > $PWD/../meta-ivi/scripts/runqemu kronos-image qemux86-64
+
+2. To login use these credentials:
+
+ > User - root
+ > Password - root
+
+3. To use wayland-ivi-extension 1.5.0,put below line to conf/local.conf at your build directory
+
+ PREFERRED_VERSION_wayland-ivi-extension = "1.5.0"
+
+后记
+
+如果编译时遇到gcc版本问题导致编译失败可以参考Ubuntu下GCC
+wiki/team/system_design/technique/genivibaseline.txt · 最后更改: 2016/03/01 08:53 由 liuwanfu
+页面工具
+
+    编辑本页
+    修订记录
+    反向链接
+    页面重命名
+    回到顶部
+
+除额外注明的地方外，本维基上的内容按下列许可协议发布： CC Attribution-Share Alike 3.0 Unported
+CC Attribution-Share Alike 3.0 Unported Donate Powered by PHP Valid HTML5 Valid CSS Driven by DokuWiki
+
+
+
+
+
+
+
+
+
+
+
